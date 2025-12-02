@@ -77,6 +77,8 @@ class LSTMModel():
         X_train_lengths = [len(i.split()) for i in self.X_train]
         print(f"First few lengths: {X_train_lengths[:5]}")
 
+        plt.title("Word Lengths in the Data set")
+        plt.xlabel("Number of Words")
         plt.hist(X_train_lengths)
         plt.plot()
 
@@ -149,6 +151,7 @@ class LSTMModel():
         plt.plot(history.history['sparse_categorical_accuracy'], label = 'accuracy')
         plt.plot(history.history['val_sparse_categorical_accuracy'], label = 'val_accuracy')
 
+        plt.title('Accuracy and Loss per Epoch')
         plt.xlabel('Epoch')
         plt.legend()
 

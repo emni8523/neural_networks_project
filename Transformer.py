@@ -156,6 +156,7 @@ class TransformerModel(LSTMModel):
         plt.plot(history.history['val_sparse_categorical_accuracy'], label = 'val_accuracy')
         plt.plot(history.history['val_loss'], label = 'val_loss')
 
+        plt.title("Accuracy and Loss per Epoch")
         plt.xlabel('Epoch')
         plt.legend()
 
