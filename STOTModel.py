@@ -63,6 +63,7 @@ class STOT():
 
         print(f"Transcription After Filter: {transcript_from_model}")
         print(f"Filtered Gold Text: {transcript_from_data}")
+        filtered_transcript = re.sub(r' ([,.?!:;])',r'\1',filtered_transcript)
         print(f"True Filter: {filtered_transcript}")
 
         # get true labels
@@ -84,12 +85,15 @@ class STOT():
         classes_from_data = classes_from_data[mask_data]
         true_labels_data = true_labels_data[mask_data]
 
+        #print(classes_from_model)
+        #print(true_labels_mod)
+
         # print accuracies
         accuracy_mod = np.mean(classes_from_model == true_labels_mod)
-        print(f"Total Model Accuracy: {accuracy_mod}, F1: {f1_score(classes_from_model,true_labels_mod)}")
+        #print(f"Total Model Accuracy: {accuracy_mod}")
 
         accuracy_dat = np.mean(classes_from_data == true_labels_data)
-        print(f"Filter Model Accuracy: {accuracy_dat}, F1: {f1_score(classes_from_data,true_labels_data)}")
+        #print(f"Filter Model Accuracy: {accuracy_dat}")
 
         # prompt the LLM to get a more academic response
         #self.call_api(transcript_from_model)

@@ -77,7 +77,7 @@ class LSTMModel():
         X_train_lengths = [len(i.split()) for i in self.X_train]
         print(f"First few lengths: {X_train_lengths[:5]}")
 
-        plt.title("Word Lengths in the Data set")
+        plt.title("Words per Sequence")
         plt.xlabel("Number of Words")
         plt.hist(X_train_lengths)
         plt.plot()
@@ -108,8 +108,8 @@ class LSTMModel():
 
     
     # print the proportions of each label to check if padding makes sense 
-    def print_props(self, y_labels):
-        unique, counts = np.unique(y_labels,return_counts=True)
+    def print_props(self):
+        unique, counts = np.unique(self.y_train_labels,return_counts=True)
         for u, c in zip(unique, counts):
             print(f"Percentage {u} is {c / counts.sum()}")
 
@@ -131,7 +131,7 @@ class LSTMModel():
         # add sample weights to emphasize getting the removed tokens right more frequently
         sample_weights = np.ones_like(self.y_train_labels) # same shape, all ones
         sample_weights[self.y_train_labels==0] = 0 # this also makes the padded words not count in the accuracy calculation
-        sample_weights[self.y_train_labels==1] = 2
+        sample_weights[self.y_train_labels==1] = 3
         sample_weights[self.y_train_labels==2] = 1
 
         self.model.compile(

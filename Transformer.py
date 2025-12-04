@@ -106,7 +106,7 @@ class TransformerModel(LSTMModel):
         sequence_outputs = BertLayer(model="bert-base-uncased" if self.lower else "bert-base-cased") ((input_ids, attention_mask))
 
         x = Dropout(0.3)(sequence_outputs)
-        x = TimeDistributed(Dense(256, activation='relu'))(x) # time distributed due to attention
+        x = TimeDistributed(Dense(256, activation='relu'))(x) # time distributed 
         x = Dropout(0.3)(x)
         #x = TimeDistributed(Dense(64, activation='relu'))(x)
         #x = Dropout(0.2)(x)
