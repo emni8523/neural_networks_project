@@ -150,6 +150,8 @@ class LSTMModel():
         # plot loss and accuracy over epochs
         plt.plot(history.history['sparse_categorical_accuracy'], label = 'accuracy')
         plt.plot(history.history['val_sparse_categorical_accuracy'], label = 'val_accuracy')
+        plt.plot(history.history['loss'], label = 'loss')
+        plt.plot(history.history['val_loss'], label = 'val_loss')
 
         plt.title('Accuracy and Loss per Epoch')
         plt.xlabel('Epoch')

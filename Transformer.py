@@ -42,7 +42,7 @@ class BertLayer(Layer):
 
 
 
-# Transformer model, inherited from bart
+# Transformer model, inherited from bert
 class TransformerModel(LSTMModel):
     def __init__(self, train=None, val=None, test=None, batch=8, segmented=True, lower=True, model_type="transformer"):
         super().__init__(train=train, val=val, test=test, segmented=segmented, lower=lower, model_type=model_type) # init from parent class
