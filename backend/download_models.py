@@ -4,7 +4,14 @@ import gdown
 def download_models():
     """Download model folders if they don't exist"""
     
-    # Download json_files folder
+    if not os.path.exists('keras_folder'):
+        print("Downloading model2new.keras...")
+        gdown.download_folder(
+            id='1t1U0SlrdnE1uUpQ96D7teTG-n361WGcT', 
+            quiet=False,
+            use_cookies=False
+        )
+    
     if not os.path.exists('json_files'):
         print("Downloading json_files folder...")
         gdown.download_folder(
@@ -22,14 +29,6 @@ def download_models():
             use_cookies=False
         )
     
-    # Download single model file
-    if not os.path.exists('keras_folder'):
-        print("Downloading model2new.keras...")
-        gdown.download(
-            id='1t1U0SlrdnE1uUpQ96D7teTG-n361WGcT',  
-            output='model2new.keras',
-            quiet=False
-        )
     
     print("All models downloaded successfully!")
 
