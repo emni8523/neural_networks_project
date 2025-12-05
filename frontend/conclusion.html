@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="global.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://kit.fontawesome.com/4a44b6177d.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div class="desktop">
+      <div class="banner">
+        
+        
+        <a href="index.html" style="text-decoration: none;">
+        <div class="text-wrapper" id="Paragon">PARAGON</div>
+        </a>
+    
+    </div>
+    <div class="Main">
+      <div class="title">
+        <h2>Conclussions</h2>
+          <div class="title-line"></div>
+      </div>
+      <div class="text-bubble">
+      <h4>Whisper model</h4>
+      <p>
+When tested on the test data of the Hugging Face Disfluency Speech dataset, Paragon performed accurately and effectively at both transcribing speech and removing filler words. Our word error rate of 9.63% was 15 points lower than the Whisper model we pre-trained the model on. In addition, while our filtration model did not perform too high above baseline (less than 1% increase after fine-tuning), the baseline for the BERT uncased model already had a 96% classification accuracy on the data before any fine-tuning was conducted (apart from the final dense layer). The LSTM, while not used in the final version of our product, also produced reasonable results with a 92% accuracy.       
+      </p>
+      <br>
+      <p>
+
+The main limitation of the project, in its current form, is that it was only trained on minimal data from a single speaker. This results in the speech to text model being overfit to the voice and accent of this speaker, and the filtration model being overfit to the speech patterns that this person utilizes. While testing the interface on our own voices still yields strong results qualitatively, all the accuracy metrics are relative to the speaker from the test data. It is reasonable to assume that accuracy metrics across the board would not perform as well on other speakers. A major improvement for the project would be to acquire more data, but the process of manually transcribing additional disfluency speech was too time expensive for the scope of this project. The Disfluency Speech dataset was produced by a speaker in a simulated setting where they were asked to read interview data as if they were coming up with it on the spot (Wang, K., & Herremans, D.). Then, researchers manually transcribed the speech itself. Extending this dataset under the same or similar conditions in order to get similar transcriptions is itself a large project, and not the primary goal of this project.
+      <br>
+      <p>
+In working on the project, a challenge we had to overcome was resolving compatibility issues between the speech to text and transformer models. Because the Transformers library uses keras 3, the filtration model was saved to a keras 3 file. This conflicted with the version that Flask, our frontend manager, expected. This issue was eventually resolved by making a few key changes. First, we included a wrapper class BertLayer in the transformer model, which encapsulated the TFBertModel inside a keras-serializable layer. This allowed us to explicitly control how the BERT model was loaded, how its configuration was stored, and how its hidden-state outputs were processed. When this still resulted in errors when combining the models, we had to downgrade our python, tensorflow, keras, and transformers versions to 3.10.19, 2.15.0, 2.15.0, and 4.38.2, respectively. We did this for both the environment that saved the model using tensorflow, as well as the environment that opened and implemented the model using Flask. This allowed for the filtration model to successfully run in Flask, and it actually improved the filtration accuracy by 3 points. Downgrading python, however, also resulted in much longer run times for the model, so we only ended up using 3 epochs for the final model rather than the 20 that were used for initially training the model in python 3.13.2.    
+      </p>
+      <br>
+      <p>
+        (NEED ONE MORE PARAGRAPH HERE)
+      </p>
+      <p>
+        In conclusion, our goal with this project was to create an application with a specific goal in mind of translating text into academic language. While this can be done using LLMs with specific prompting, we hard-coded it into our LLM call so that the user can consistently know what to expect. Additionally, our application pipeline splits up the text generation into multiple different models working together. This allows for us to look at how each model is performing after each step, and identify whether errors are occurring due to inaccurate transcription or incorrect filtration. Also, separating the project into two different models gives it room to improve as better models, larger datasets, or better freely available LLM prompting become available. Despite room for improvement, the application has a strong foundation that pairs modern speech to text technology with a user friendly interface that is convenient, approachable, and useful for many students across many academic disciplines.
+      </p>
+
+</div>
+  </div>
+      <div class="menu-sign">
+        <div class="menu">
+          <div class="ellipse-2"></div>
+          <div class="ellipse-3"></div>
+          <div class="ellipse-4"></div>
+        </div>
+      </div>  
+       <div class="menu-dropdown" id="menuDropdown">
+        <a href="index.html">Home</a>
+        <a href="introduction.html">Introduction</a>
+        <a href="data_prep.html">Data and prep</a>
+        <a href="methods.html">Analysis: Models/Methods</a>
+        <a href="result.html">Results</a>
+        <a href="conclusion.html">Conclusion</a>
+        </div>  
+    </div>
+
+    <footer>
+      <div class="footer-columns">
+        <div class="footer-info">
+          <p>This was a project for University of Colorado Boulder in the course Neural Networks and Deep Learning, Fall 2025.</p>
+          <a href="https://github.com/emni8523/neural_networks_project">Link to Github</a>
+        </div>
+
+        <div class="footer-authors">
+          <p><strong>Authors</strong></p>
+          <p>Emil Nilsson</p>
+          <p>Jeremy Miesch</p>
+        </div>
+      </div>
+    </footer>
+
+     <script>
+
+      const menuSign = document.querySelector('.menu-sign');
+      const menuDropdown = document.getElementById('menuDropdown');
+
+      menuSign.addEventListener('click', function(e) {
+        e.stopPropagation();
+        menuDropdown.classList.toggle('active');
+      });
+
+      document.addEventListener('click', function(e) {
+        if (!menuSign.contains(e.target)) {
+          menuDropdown.classList.remove('active');
+        }
+      });
+
+  </script>
+  </body>

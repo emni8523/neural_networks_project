@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="global.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://kit.fontawesome.com/4a44b6177d.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div class="desktop">
+      <div class="banner">
+        
+        
+        <a href="index.html" style="text-decoration: none;">
+        <div class="text-wrapper" id="Paragon">PARAGON</div>
+        </a>
+    
+    </div>
+    <div class="Main">
+      <div class="title">
+        <h2>Analysis:</h2>
+        <h2>Models and methods</h2>
+          <div class="title-line"></div>
+      </div>
+      <div class="text-bubble">
+      <h4>Whisper model</h4>
+      <p>
+TDB      </p>
+      <br>
+      <h4>Filtration model</h4>
+      <p>
+
+The second model we use in our pipeline is a filtration model that uses the Disfluency Speech data as a guideline for removing filler words, repetition, and restarts. While Whisper could have filtered out filler words itself, implementing a filtration model using the Disfluency Speech dataset also allowed us to train the model to remove repeated words and restarts. The filtration model utilized two different models, an LSTM and a Transformer. These models were selected because the keep/remove dataset made this a sequence to sequence classification task. LSTMs are designed to handle sequential datasets, such as text. In order to improve accuracy, the transformer pre-trained on BERT, which is trained to handle context-dependent classification in sequence to sequence tasks.     
+      </p>
+<br>
+      <p>
+
+In order to account for the discrepancy between the number of kept and removed tokens, as well as to not consider padded tokens in finding the accuracy, sample weights were used. Labels for ‘removed’ were weighted with a 3, labels for ‘keep’ with a 1, and labels for ‘padding’ with a 0. The model was compiled with an Adam optimizer, a learning rate of 0.001, sparse categorical cross entropy for the loss, and sparse categorical accuracy. Additionally, the model was fit to the test data over 20 epochs with early stopping implemented with a patience of 4 in order to avoid overfitting. Setting the sample weight to 0 for padding labels allowed them to not be considered in calculations for loss and accuracy, despite the model using sparse categorical crossentropy rather than binary crossentropy. The model architecture is shown in Figure 4.
+      </p>
+      <br>
+      <p>
+        The second approach was pre-trained on ‘bert-base-uncased’ and fine-tuned on the data using a time distributed dense layer with 256 units, two dropout layers of 0.3, and a final dense layer for classification. Time distributed dense layers were necessary here to reduce run time on a sequence to sequence labelling task, sharing weights across time steps and decreasing the number of parameters in the model. This model stored the final 4 hidden states from the pre-training to use, and also made use of the same sample weights to ensure that it was incentivised to predict the ‘remove’ label and ignore any padding. The model was compiled over 3 epochs with an Adam optimizer, a learning rate of 3e-5, sparse categorical cross entropy, and sparse categorical accuracy. The model architecture is shown in Figure 5.
+      </p>
+
+
+</div>
+  </div>
+      <div class="menu-sign">
+        <div class="menu">
+          <div class="ellipse-2"></div>
+          <div class="ellipse-3"></div>
+          <div class="ellipse-4"></div>
+        </div>
+      </div>  
+       <div class="menu-dropdown" id="menuDropdown">
+          <a href="index.html">Home</a>
+          <a href="introduction.html">Introduction</a>
+          <a href="data_prep.html">Data and prep</a>
+          <a href="methods.html">Analysis: Models/Methods</a>
+          <a href="result.html">Results</a>
+          <a href="conclusion.html">Conclusion</a>
+        </div>  
+    </div>
+
+    <footer>
+      <div class="footer-columns">
+        <div class="footer-info">
+          <p>This was a project for University of Colorado Boulder in the course Neural Networks and Deep Learning, Fall 2025.</p>
+          <a href="https://github.com/emni8523/neural_networks_project">Link to Github</a>
+        </div>
+
+        <div class="footer-authors">
+          <p><strong>Authors</strong></p>
+          <p>Emil Nilsson</p>
+          <p>Jeremy Miesch</p>
+        </div>
+      </div>
+    </footer>
+
+     <script>
+
+      const menuSign = document.querySelector('.menu-sign');
+      const menuDropdown = document.getElementById('menuDropdown');
+
+      menuSign.addEventListener('click', function(e) {
+        e.stopPropagation();
+        menuDropdown.classList.toggle('active');
+      });
+
+      document.addEventListener('click', function(e) {
+        if (!menuSign.contains(e.target)) {
+          menuDropdown.classList.remove('active');
+        }
+      });
+
+  </script>
+  </body>
