@@ -8,7 +8,7 @@ def download_models():
     if not os.path.exists('json_files'):
         print("Downloading json_files folder...")
         gdown.download_folder(
-            id='YOUR_JSON_FILES_FOLDER_ID',  # Extract from Google Drive URL
+            id='1mUXb8vDy-I7mGC6LfIDhGNrdKXxuFZlk', 
             quiet=False,
             use_cookies=False
         )
