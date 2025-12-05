@@ -145,7 +145,7 @@ class Model_init():
 #Loading in the model
 print('Loading the transcraption model')
 
-model = tf.keras.models.load_model('model2new.keras', custom_objects={"BertLayer": BertLayer}
+model = tf.keras.models.load_model('keras_folder/model2new.keras', custom_objects={"BertLayer": BertLayer}
                                    )
 
 filter_model = Model_init(model, APIKey)
