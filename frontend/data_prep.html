@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="global.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://kit.fontawesome.com/4a44b6177d.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div class="desktop">
+      <div class="banner">
+        
+        
+        <a href="index.html" style="text-decoration: none;">
+        <div class="text-wrapper" id="Paragon">PARAGON</div>
+        </a>
+    
+    </div>
+    <div class="Main">
+      <div class="title">
+        <h2>Data and prep</h2>
+          <div class="title-line"></div>
+      </div>
+      <div class="text-bubble">
+      <p>
+All of our data comes from the <a href="https://huggingface.co/datasets/amaai-lab/DisfluencySpeech/viewer/default/train?row=87">Hugging Face Disfluency Speech </a> dataset (Wang, K., & Herremans, D., 2024). This dataset includes columns of raw audio .wav files as well as four transcriptions with varying degrees of filtration. The audio files range from ~5-10 seconds. The column ‘transcript_annotated’ contains non-speech elements, filler words, repeated words, and restarts. The column ‘transcript_a’ removes non-speech elements, ‘transcript_b’ removes filler words, and ‘transcript_c’ removes repeated words and restarts. An example of the first row of the train data is shown below.
+      </p>
+      <br>
+      <p>
+This project is at the moment limited by the amount of data used, as this dataset only contains 5,000 entries with a 90/5/5 train/test/val split. First steps at improving the application would be to expand the amount of data both the speech to text and the filtration models were trained on. While both of these models utilized pre-training on larger models, they are likely overfitted to the specific dataset they were fine-tuned on.      </p>
+      <br>
+      <h4>Whisper model</h4>
+      <p>
+  For the speech to text model, the audio file and transcript_a were used.
+      </p>
+      <br>
+      <h4>Filtration model</h4>
+      <p>
+For the filtration model, the data was preprocessed by stripping each entry and putting them in lower-case. Then, certain punctuation marks (,.?!:;) were separated from surrounding words in order to treat them as their own tokens for the model. Other special characters were removed by the tokenizers. For the LSTM model, the tokenizer used was from the tf.keras.preprocessing library. For the transformer, the tokenizer used was the Autotokenizer from the transformers library. The start and end of sequence tokens were 101 and 102, respectively, for the transformer model. The latter tokenizer subdivides words into subwords, and so each subword was ensured to have the same label as each other subword for a given token.      </p>
+      <br>
+      <p>
+Output data was converted to a binary keep/remove classifier for each word. This used difflib to compare the raw and the clean text output, and assigned each token a 1 if it did not appear in the clean text and a 2 if it did, as well as appending enough 0s to the end of the sequence for padding. The max length for padding was determined by examining the size of each sentence after pre-processing and concluding that most of the sentences fell below 40 words, as shown in Figure 2. The proportion of each label was examined to ensure that there was not too much padding, and is shown in Figure 3. 
+      </p>
+    </div>
+  </div>
+      <div class="menu-sign">
+        <div class="menu">
+          <div class="ellipse-2"></div>
+          <div class="ellipse-3"></div>
+          <div class="ellipse-4"></div>
+        </div>
+      </div>  
+<div class="menu-dropdown" id="menuDropdown">
+  <a href="index.html">Home</a>
+  <a href="introduction.html">Introduction</a>
+  <a href="data_prep.html">Data and prep</a>
+  <a href="methods.html">Analysis: Models/Methods</a>
+  <a href="result.html">Results</a>
+  <a href="conclusion.html">Conclusion</a>
+</div>
+    </div>
+
+    <footer>
+      <div class="footer-columns">
+        <div class="footer-info">
+          <p>This was a project for University of Colorado Boulder in the course Neural Networks and Deep Learning, Fall 2025.</p>
+          <a href="https://github.com/emni8523/neural_networks_project">Link to Github</a>
+        </div>
+
+        <div class="footer-authors">
+          <p><strong>Authors</strong></p>
+          <p>Emil Nilsson</p>
+          <p>Jeremy Miesch</p>
+        </div>
+      </div>
+    </footer>
+
+     <script>
+
+      const menuSign = document.querySelector('.menu-sign');
+      const menuDropdown = document.getElementById('menuDropdown');
+
+      menuSign.addEventListener('click', function(e) {
+        e.stopPropagation();
+        menuDropdown.classList.toggle('active');
+      });
+
+      document.addEventListener('click', function(e) {
+        if (!menuSign.contains(e.target)) {
+          menuDropdown.classList.remove('active');
+        }
+      });
+
+  </script>
+  </body>

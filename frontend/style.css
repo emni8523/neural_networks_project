@@ -1,0 +1,481 @@
+@font-face {
+    font-family: 'SourceCodePro';
+    src: url('fonts/static/SourceCodePro-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SourceCodeProlight';
+    src: url('fonts/static/SourceCodePro-Light.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+.desktop {
+  background-image: url(./img/background.png);
+  background-size: 100% 600px;
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-color: #1a1a1a;
+  width: 100%;
+  min-height: 100vh; /* This ensures it's at least full viewport height */
+  position: relative;
+  padding-bottom: 50px;
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh; /* Changed from 100% to 100vh */
+  background-color: #1a1a1a; /* Match the desktop background */
+}
+
+
+.desktop .banner {
+  position: relative;
+  top: 65px;
+  left: 126px;
+  width: 293px;
+  height: 65px;
+  display: flex;
+}
+
+.desktop .text-wrapper {
+  width: 291px;
+  height: 65px;
+  font-family: "SourceCodePro", "Ruslan Display-Regular", Helvetica;
+  font-weight: 400;
+  color: #ffffff;
+  font-size: 60px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.desktop .stot {
+  position: absolute;
+  top: 130px;
+  left: 516px;
+  width: 412px;
+  height: 920px;
+  transform: rotate(90deg);
+}
+
+.desktop .rectangle {
+  top: 540px;
+  background-color: #629959;
+  position: absolute;
+  left: -138px;
+  width: 588px;
+  height: 473px;
+  border-radius: 10px;
+  transform: rotate(-90deg);
+
+  /* Semi-transparent background without affecting the border */
+  background-color: rgba(43, 75, 38, 0.34);
+
+  /* Thin, more visible border */
+  border: 1px solid rgba(98, 153, 89, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.desktop  .rectangle p{
+  font-family: "SourceCodePro", "Ruslan Display-Regular", Helvetica;
+  color: #ffffff;
+  font-weight: 300;
+  text-align: left;
+  letter-spacing: 0;
+  line-height: normal;
+  justify-content: left;
+  align-items: left;
+  line-height: 1.4;
+  width: 100%;
+  height: 100%;
+
+}
+
+
+.desktop .rectangle-2 {
+  top: -133px;
+  position: absolute;
+  left: -138px;
+  width: 588px;
+  height: 473px;
+  border-radius: 10px;
+  transform: rotate(-90deg);
+  background-color: rgba(43, 75, 38, 0.34);
+  border: 1px solid rgba(98, 153, 89, 0.8);
+  font-family: "SourceCodePro", "Ruslan Display-Regular", Helvetica;
+  padding: 20px; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.desktop .rectangle-2 p {
+  font-family: "SourceCodePro", "Ruslan Display-Regular", Helvetica;
+  font-weight: 300;
+  color: #ffffff;
+  text-align: left;
+  letter-spacing: 0;
+  line-height: 1.4;
+  margin: 0;
+  display: flex;
+  justify-content: left;
+  align-items: left;
+  width: 100%;
+  height: 100%;
+}
+
+.desktop .mic-button {
+  position: absolute;
+  top: 343px;
+  left: 267px;
+  width: 171px;
+  height: 194px;
+  cursor: pointer;
+}
+
+.desktop .mic-button.active::before {
+  content: '';
+  position: absolute;
+  width: 113.20%;
+  height: 88.34%;
+  top: 5.83%;
+  left: -6.60%;
+  background-color: transparent;
+  border: 4px solid darkgreen;
+  border-radius: 96.92px / 85.62px; 
+  transform: rotate(-90deg); 
+  z-index: 3;
+  box-sizing: border-box; 
+}
+
+.desktop .ellipse {
+  position: absolute;
+  width: 113.20%;
+  height: 88.34%;
+  top: 5.83%;
+  left: -6.60%;
+  background-color: #7f7f7f;
+  border-radius: 96.92px / 85.62px;
+  transform: rotate(-90deg);
+  z-index: 1;
+}
+
+.desktop .mic {
+  position: absolute;
+  width: 113.20%;
+  height: 88.34%;
+  top: 5.83%;
+  left: -6.60%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.8;
+  z-index: 10;
+}
+
+
+.desktop .mic i {
+  font-size: 110px; 
+  transform: rotate(-90deg);
+  color: green;
+}
+
+.desktop .img {
+  position: absolute;
+  top: 15px;
+  left: 32px;
+  width: 45px;
+  height: 55px;
+  transform: rotate(90deg);
+}
+
+.desktop .vector {
+  top: 22px;
+  left: -16px;
+  width: 85px;
+  height: 47px;
+  position: absolute;
+  transform: rotate(90deg);
+}
+
+.desktop .vector-2 {
+  top: 38px;
+  left: -8px;
+  width: 14px;
+  height: 15px;
+  position: absolute;
+  transform: rotate(90deg);
+}
+
+.desktop .vector-3 {
+  top: 39px;
+  left: -32px;
+  width: 47px;
+  height: 14px;
+  position: absolute;
+  transform: rotate(90deg);
+}
+
+.desktop .bottom-text {
+  position: absolute;
+  width: 1209px;
+  height: 310px;
+  top: 591px;
+  left: 126px;
+  display: flex;
+  gap: 301px;
+}
+
+.desktop .div-2 {
+  width: 456px;
+  height: 310px;
+  position: relative;
+}
+
+.desktop .rectangle-3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 452px;
+  height: 310px;
+  background-color: #bcbcec99;
+  border-radius: 20px;
+}
+
+.desktop .lorem-ipsum-dolor {
+  position: absolute;
+  top: 83px;
+  left: 28px;
+  width: 395px;
+  font-family: "Roboto Serif-Regular", Helvetica;
+  font-weight: 400;
+  color: transparent;
+  font-size: 16px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.desktop .span {
+  color: #000000;
+}
+
+.desktop .text-wrapper-3 {
+  font-family: "Roboto Serif-Bold", Helvetica;
+  font-weight: 700;
+  color: #68490c;
+}
+
+.desktop .text-wrapper-4 {
+  position: absolute;
+  top: 29px;
+  left: 87px;
+  font-family: "Ruslan Display-Regular", Helvetica;
+  font-weight: 400;
+  color: #68490c;
+  font-size: 50px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.desktop .text-wrapper-5 {
+  position: absolute;
+  top: 29px;
+  left: 148px;
+  font-family: "Ruslan Display-Regular", Helvetica;
+  font-weight: 400;
+  color: #68490c;
+  font-size: 50px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.desktop .menu-sign {
+  position: absolute;
+  top: 121px;
+  left: 1165px;
+  width: 282px;
+  height: 182px;
+  display: flex;
+  transform: rotate(90deg);
+  cursor: pointer;
+}
+
+.desktop .menu {
+  margin-top: 65.3px;
+  width: 37.12px;
+  height: 51.49px;
+  position: relative;
+}
+
+.menu-dropdown {
+  position: absolute;
+  top: 150px; 
+  left: 1220px;
+  background-color: #bcbcec;
+  border-radius: 15px;
+  padding: 20px;
+  min-width: 200px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  display: none;
+  z-index: 1000;
+}
+
+.menu-dropdown a {
+  display: block;
+  padding: 12px 20px;
+  color: #68490c;
+  text-decoration: none;
+  font-family: "Roboto Serif-Regular", Helvetica;
+  font-size: 18px;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+}
+
+      .menu-dropdown.active {
+        display: block;
+      }
+
+
+      .menu-sign {
+        cursor: pointer;
+      }
+
+
+.desktop .ellipse-2 {
+  position: absolute;
+  top: 22px;
+  left: -22px;
+  width: 51px;
+  height: 8px;
+  background-color: #629959;;
+  border-radius: 25.75px / 4.19px;
+  transform: rotate(-90deg);
+}
+
+.desktop .ellipse-3 {
+  position: absolute;
+  top: 22px;
+  left: -7px;
+  width: 51px;
+  height: 8px;
+  background-color: #629959;
+  border-radius: 25.75px / 4.19px;
+  transform: rotate(-90deg);
+}
+
+.desktop .ellipse-4 {
+  position: absolute;
+  top: 22px;
+  left: 7px;
+  width: 51px;
+  height: 8px;
+  background-color: #629959;
+  border-radius: 25.75px / 4.19px;
+  transform: rotate(-90deg);
+}
+
+
+.Main {
+  width: 100%;
+  position: relative;
+  margin: 0 auto 0 auto; /* top right bottom left - centers horizontally */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 50px;
+}
+
+.desktop .title h2{
+  padding: 12px 20px;
+  color: white;
+  font-size: 60px;
+  margin: 0;
+text-align: center;
+}
+
+
+.title-line {
+  width: 1620px; /* Adjust width as needed */
+  height: 3px;
+  background-color: #000000;
+}
+
+.text-bubble {
+  background-color: transparent;
+  border-radius: 10px;
+  padding: 30px 40px;
+  width: 1200px; 
+  min-height: 500px;
+  
+}
+
+.text-bubble p {
+  font-family: "Roboto Serif-Regular", Helvetica;
+  font-size: 18px;
+  color: #ffffff;
+  margin: 0;
+  text-align: left;
+  line-height: 1.6;
+}
+footer {
+  background: #a9a9a9;
+  color: #222;
+  padding: 30px 40px;
+  font-family: "Times New Roman", Times, serif;
+  width: 100%; 
+  box-sizing: border-box;
+}
+
+.footer-columns {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.footer-info {
+  max-width: 60%;
+}
+
+.footer-info p, .footer-authors p {
+  margin: 4px 0;
+  line-height: 1.5;
+  font-size: large;
+}
+
+.desktop .banner-text {
+  position: absolute;
+  top: 125px;
+  left: 126px;
+  width: 293px;
+  height: 65px;
+  display: flex;
+  color: white;
+  padding-left: 15px;
+  padding-right: 5px;
+  font-size: small;
+  font-family: 'SourceCodeProlight', 'Times New Roman', Times, serif;
+}
+
+
+
+
+/* 
+Roligare font i vit, blockigare i caps check
+Gröna textrutor, check
+Footer i ljusgrå med svart text
+*/
