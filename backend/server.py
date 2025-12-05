@@ -26,7 +26,6 @@ from ParagonFull import BertLayer
 
 load_dotenv()
 APIKey = os.getenv('APIKEY')
-#APIKey = "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"
 print(APIKey)
 
 app = Flask(__name__)
