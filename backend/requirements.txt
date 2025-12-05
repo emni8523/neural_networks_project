@@ -10,4 +10,4 @@ jiwer==4.0.0
 evaluate==0.4.6
 gunicorn==21.2.0
 numpy
-
+python-dotenv
