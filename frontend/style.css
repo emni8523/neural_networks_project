@@ -601,3 +601,11 @@ text-align: center;
   height: 400px;
 }
 
+.citation a {
+  color: #58a6ff; 
+  text-decoration: none;
+}
+
+.citation a:hover {
+  text-decoration: underline;
+}
