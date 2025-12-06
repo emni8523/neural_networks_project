@@ -19,7 +19,7 @@
     </div>
     <div class="Main">
       <div class="title">
-        <h2>Data and prep</h2>
+        <h2>DATA PREPERATION</h2>
           <div class="title-line"></div>
       </div>
       <div class="text-bubble">
@@ -54,7 +54,7 @@ This project is at the moment limited by the amount of data used, as this datase
 For the filtration model, the data was preprocessed by stripping each entry and putting them in lower-case. Then, certain punctuation marks (,.?!:;) were separated from surrounding words in order to treat them as their own tokens for the model. Other special characters were removed by the tokenizers. For the LSTM model, the tokenizer used was from the tf.keras.preprocessing library. For the transformer, the tokenizer used was the Autotokenizer from the transformers library. The start and end of sequence tokens were 101 and 102, respectively, for the transformer model. The latter tokenizer subdivides words into subwords, and so each subword was ensured to have the same label as each other subword for a given token.      </p>
       <br>
       <p>
-Output data was converted to a binary keep/remove classifier for each word. This used difflib to compare the raw and the clean text output, and assigned each token a 1 if it did not appear in the clean text and a 2 if it did, as well as appending enough 0s to the end of the sequence for padding. The max length for padding was determined by examining the size of each sentence after pre-processing and concluding that most of the sentences fell below 40 words, as shown in Figure 2. The proportion of each label was examined to ensure that there was not too much padding, and is shown in Figure 3. 
+Output data was converted to a binary keep/remove classifier for each word. This used difflib to compare the raw and the clean text output, and assigned each token a 1 if it did not appear in the clean text and a 2 if it did, as well as appending enough 0s to the end of the sequence for padding. The max length for padding was determined by examining the size of each sentence after pre-processing and concluding that most of the sentences fell below 40 words, as shown in Figure 3. The proportion of each label was examined to ensure that there was not too much padding, and is shown in Figure 4. 
       </p>
 
       <br>
@@ -81,12 +81,13 @@ Output data was converted to a binary keep/remove classifier for each word. This
         </div>
       </div>  
 <div class="menu-dropdown" id="menuDropdown">
-  <a href="index.html">Home</a>
-  <a href="introduction.html">Introduction</a>
-  <a href="data_prep.html">Data and prep</a>
-  <a href="methods.html">Analysis: Models/Methods</a>
-  <a href="result.html">Results</a>
-  <a href="conclusion.html">Conclusion</a>
+        <a href="index.html">Abstract</a>
+          <a href="introduction.html">Introduction</a>
+          <a href="data_prep.html">Data and prep</a>
+          <a href="methods.html">Analysis: Models/Methods</a>
+          <a href="result.html">Results</a>
+          <a href="conclusion.html">Conclusion</a>
+          <a href="citation.html">References</a>
 </div>
     </div>
 

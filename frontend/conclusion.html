@@ -19,14 +19,12 @@
     </div>
     <div class="Main">
       <div class="title">
-        <h2>Conclussions</h2>
+        <h2>CONCLUSIONS</h2>
           <div class="title-line"></div>
       </div>
       <div class="text-bubble">
-      <h4>Whisper model</h4>
       <p>
-When tested on the test data of the Hugging Face Disfluency Speech dataset, Paragon performed accurately and effectively at both transcribing speech and removing filler words. Our word error rate of 9.63% was 15 points lower than the Whisper model we pre-trained the model on. In addition, while our filtration model did not perform too high above baseline (less than 1% increase after fine-tuning), the baseline for the BERT uncased model already had a 96% classification accuracy on the data before any fine-tuning was conducted (apart from the final dense layer). The LSTM, while not used in the final version of our product, also produced reasonable results with a 92% accuracy.       
-      </p>
+When tested on the test data of the Hugging Face Disfluency Speech dataset, Paragon performed accurately and effectively at both transcribing speech and removing filler words. Our word error rate of 9.63% was 13.3 points lower than the pre-trained Whisper mode. In addition, while our filtration model did not perform too high above baseline (less than 1% increase after fine-tuning), the baseline for the BERT uncased model already had a 96% classification accuracy on the data before any fine-tuning was conducted (apart from the final dense layer). The LSTM, while not used in the final version of our product, also produced reasonable results with a 92% accuracy.       </p>
       <br>
       <p>
 
@@ -37,7 +35,7 @@ In working on the project, a challenge we had to overcome was resolving compatib
       </p>
       <br>
       <p>
-        (NEED ONE MORE PARAGRAPH HERE)
+       Another limitation of Paragon comes from whisper itself, who can only process audio up to 30 seconds, if an audio file exceeds that the program will crash. Currently, this is not being handled, but if the program were to be deployed this issue has to be addressed. One way of solving it is setting a timer and ignoring audio recording longer than 30 seconds. Another approach would be to process the data after the recording and split it into parts. However, since Paragon is not fully deployed yet, this issue can be addressed.  
       </p>
       <p>
         In conclusion, our goal with this project was to create an application with a specific goal in mind of translating text into academic language. While this can be done using LLMs with specific prompting, we hard-coded it into our LLM call so that the user can consistently know what to expect. Additionally, our application pipeline splits up the text generation into multiple different models working together. This allows for us to look at how each model is performing after each step, and identify whether errors are occurring due to inaccurate transcription or incorrect filtration. Also, separating the project into two different models gives it room to improve as better models, larger datasets, or better freely available LLM prompting become available. Despite room for improvement, the application has a strong foundation that pairs modern speech to text technology with a user friendly interface that is convenient, approachable, and useful for many students across many academic disciplines.
@@ -53,12 +51,13 @@ In working on the project, a challenge we had to overcome was resolving compatib
         </div>
       </div>  
        <div class="menu-dropdown" id="menuDropdown">
-        <a href="index.html">Home</a>
-        <a href="introduction.html">Introduction</a>
-        <a href="data_prep.html">Data and prep</a>
-        <a href="methods.html">Analysis: Models/Methods</a>
-        <a href="result.html">Results</a>
-        <a href="conclusion.html">Conclusion</a>
+        <a href="index.html">Abstract</a>
+          <a href="introduction.html">Introduction</a>
+          <a href="data_prep.html">Data and prep</a>
+          <a href="methods.html">Analysis: Models/Methods</a>
+          <a href="result.html">Results</a>
+          <a href="conclusion.html">Conclusion</a>
+          <a href="citation.html">References</a>
         </div>  
     </div>
 

@@ -21,7 +21,7 @@
   width: 100%;
   min-height: 100vh; 
   position: relative;
-  padding-bottom: 50px;
+  padding-bottom: 0;
 }
 html, body {
   margin: 0;
@@ -73,10 +73,9 @@ html, body {
   border-radius: 10px;
   transform: rotate(-90deg);
 
-  /* Semi-transparent background without affecting the border */
+
   background-color: rgba(43, 75, 38, 0.34);
 
-  /* Thin, more visible border */
   border: 1px solid rgba(98, 153, 89, 0.8);
   display: flex;
   justify-content: center;
@@ -396,15 +395,16 @@ html, body {
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  padding-bottom: 50px;
+  padding-bottom: 20px;
 }
 
 .desktop .title h2{
   padding: 12px 20px;
-  color: white;
+  color: orange;
   font-size: 60px;
   margin: 0;
 text-align: center;
+font-family: Georgia, 'Times New Roman', serif;
 }
 
 
@@ -497,7 +497,7 @@ figure img {
 figcaption {
   margin-top: 0.8em;
   font-size: 0.9em;
-  color: #fff;
+  color: #bc8cff;;
   font-style: italic;
 }
 
@@ -517,7 +517,7 @@ text-align: center;
 #fig3, #fig4 {
   text-align: center;
   margin: 2em auto;
-  max-width: 600px; /* Make them smaller */
+  max-width: 600px; 
 }
 
 #fig3 img, #fig4 img{
@@ -558,6 +558,46 @@ text-align: center;
 #fig3 figcaption, #fig4 figcaption, #fig2 figcaption {
   margin-top: 1em;
   font-size: 0.85em;
-  color: #bc8cff;/* Blue caption color */
+  color: #bc8cff;
   font-style: italic;
 }
+
+ #video-caption p
+ {
+
+ }
+
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; 
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+  margin: 2em auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  margin-bottom: 0;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+}
+
+
+#chat, #speaking {
+  display: inline-block;
+  width: 45%;
+  margin: 1em 2%;
+  vertical-align: top;
+}
+
+#chat img, #speaking img {
+  width: 350%;
+  height: 400px;
+}
+

@@ -3,49 +3,47 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="global.css" /> <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="global.css" />
+    <link rel="stylesheet" href="style.css" />
     <script src="https://kit.fontawesome.com/4a44b6177d.js" crossorigin="anonymous"></script>
   </head>
   <body>
     <div class="desktop">
       <div class="banner">
-      
+        
+        
         <a href="index.html" style="text-decoration: none;">
         <div class="text-wrapper" id="Paragon">PARAGON</div>
         </a>
     
     </div>
-        <div class="Main">
+    <div class="Main">
       <div class="title">
-        <h2>ABSTRACT</h2>
+        <h2>References</h2>
           <div class="title-line"></div>
       </div>
       <div class="text-bubble">
-      <p>
-Paragon is a speech to text application which allows users to generate academic text from raw audio. Through a fine-tuned Whisper speech-to-text model, the speech is processed and transcribed into text. Then, through a filtration transformer model pre-trained on BERT, the transcribed text is updated to remove repetition and filler words. We utilize OpenAI’s gpt-oss-20b as an LLM partner to recommend more academic ways of saying the sentence before printing the final result to a final frontend. We report a word error rate for our speech to text model of 9.63% (13.3  points lower than baseline) and an accuracy of 96.6% and an F1 score of 85.2% (comparable to baseline). 
-       </p>
-        
-    <div class="video-container">
-    <iframe 
-      width="560" 
-      height="315" 
-      src="https://www.youtube.com/watch?v=oahkBf5Fa2I" 
-      title="YouTube video player" 
-      frameborder="0" 
-      allowfullscreen>
-    </iframe>
-  </div>
+        <div class="citation"> 
+        <p>
+            Hadan, H., Wang, D. M., Mogavi, R. H., Tu, J., Zhang-Kennedy, L., & Nacke, L. E. (2024). The great AI witch hunt: Reviewers’ perception and (Mis)conception of generative AI in research writing. Computers in Human Behavior: Artificial Humans, 2(2).
+        </p>
+        <a href="https://doi.org/10.1016/j.chbah.2024.100095">https://doi.org/10.1016/j.chbah.2024.100095</a>
+        <br>
+        <p>
+            Khalifa, M., & Albadawy, M. (2024). Using artificial intelligence in academic writing and research: An essential productivity tool. Computer Methods and Programs in Biomedicine Update, 5. 
+        </p>
+        <a href="https://doi.org/10.1016/j.cmpbup.2024.100145">https://doi.org/10.1016/j.cmpbup.2024.100145</a>
+        <br>
+        <p>
+            Wang, K., & Herremans, D. (2024). DisfluencySpeech — Single-Speaker Conversational Speech Dataset with Paralanguage. arXiv. 
+        </p>
 
-    <p id="video-caption">
-This demonstrates the proposed design for Paragon, featuring two text bubbles and a microphone icon that allows the user to speak and receive a suggestion for improved speech. All components are integrated and function together as seen in the demonstration. However, the models are currently too large, causing free web services to fail. We plan to optimize our usage and find a suitable cloud storage solution over winter break. 
- </p>
-
-
+        <a href="https://doi.org/10.48550/arXiv.2406.08820">https://doi.org/10.48550/arXiv.2406.08820</a>
     </div>
 
+
+</div>
   </div>
-
-
       <div class="menu-sign">
         <div class="menu">
           <div class="ellipse-2"></div>
@@ -54,17 +52,15 @@ This demonstrates the proposed design for Paragon, featuring two text bubbles an
         </div>
       </div>  
        <div class="menu-dropdown" id="menuDropdown">
-        <a href="index.html">Abstract</a>
+          <a href="index.html">Abstract</a>
           <a href="introduction.html">Introduction</a>
           <a href="data_prep.html">Data and prep</a>
           <a href="methods.html">Analysis: Models/Methods</a>
           <a href="result.html">Results</a>
           <a href="conclusion.html">Conclusion</a>
           <a href="citation.html">References</a>
-        </div>
-        
+        </div>  
     </div>
-
 
     <footer>
       <div class="footer-columns">
@@ -80,8 +76,10 @@ This demonstrates the proposed design for Paragon, featuring two text bubbles an
         </div>
       </div>
     </footer>
-    <script>
-        const menuSign = document.querySelector('.menu-sign');
+
+     <script>
+
+      const menuSign = document.querySelector('.menu-sign');
       const menuDropdown = document.getElementById('menuDropdown');
 
       menuSign.addEventListener('click', function(e) {
@@ -94,7 +92,6 @@ This demonstrates the proposed design for Paragon, featuring two text bubbles an
           menuDropdown.classList.remove('active');
         }
       });
-    </script>
 
   </script>
   </body>
