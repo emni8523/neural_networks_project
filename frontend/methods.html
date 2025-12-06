@@ -26,22 +26,40 @@
       <div class="text-bubble">
       <h4>Whisper model</h4>
       <p>
-TDB      </p>
-      <br>
+The model uses the whisper model from Transformers. It uses the weights from the pre-trained whisper small model, and is specified to only understand English and used for transcribing text. For training we use the Trainer function from Transformer. The model was trained on a GPU for 5 epochs (since it then ran out of available memory), it had a batch size of 4 for both training and testing, a learning rate of e^-5 and weight decay of 0.1 (shrinks the weights for each epoch to prevent overfitting). The trainer also required the test and training data as hugging datasets, a tokenizer,  data collector which adds padding  and a model head. We also specified the compute metrics in which the model will be evaluated after, which is word error rate (WER). WER is popular in speech to text  measures how many deletions, substitutions and insertions are needed for the models output  to match the reference text. The model summary can be seen in Figure 5.      
+</p>
+
+
+        <figure id="fig5">
+        <img src="img/fig5.jpeg", alt="fine-tuned whisper">
+          <figcaption>Figure 5: Model summary for the fine-tuned whisper modelt</figcaption>
+      </figure>
       <h4>Filtration model</h4>
       <p>
 
 The second model we use in our pipeline is a filtration model that uses the Disfluency Speech data as a guideline for removing filler words, repetition, and restarts. While Whisper could have filtered out filler words itself, implementing a filtration model using the Disfluency Speech dataset also allowed us to train the model to remove repeated words and restarts. The filtration model utilized two different models, an LSTM and a Transformer. These models were selected because the keep/remove dataset made this a sequence to sequence classification task. LSTMs are designed to handle sequential datasets, such as text. In order to improve accuracy, the transformer pre-trained on BERT, which is trained to handle context-dependent classification in sequence to sequence tasks.     
       </p>
+
+
 <br>
       <p>
 
 In order to account for the discrepancy between the number of kept and removed tokens, as well as to not consider padded tokens in finding the accuracy, sample weights were used. Labels for ‘removed’ were weighted with a 3, labels for ‘keep’ with a 1, and labels for ‘padding’ with a 0. The model was compiled with an Adam optimizer, a learning rate of 0.001, sparse categorical cross entropy for the loss, and sparse categorical accuracy. Additionally, the model was fit to the test data over 20 epochs with early stopping implemented with a patience of 4 in order to avoid overfitting. Setting the sample weight to 0 for padding labels allowed them to not be considered in calculations for loss and accuracy, despite the model using sparse categorical crossentropy rather than binary crossentropy. The model architecture is shown in Figure 4.
       </p>
+
+        <figure id="fig6">
+        <img src="img/fig6.jpeg", alt="fArcitecture LSTM">
+          <figcaption>Figure 6: Model architecture for the LSTM model</figcaption>
+      </figure>
+
       <br>
       <p>
         The second approach was pre-trained on ‘bert-base-uncased’ and fine-tuned on the data using a time distributed dense layer with 256 units, two dropout layers of 0.3, and a final dense layer for classification. Time distributed dense layers were necessary here to reduce run time on a sequence to sequence labelling task, sharing weights across time steps and decreasing the number of parameters in the model. This model stored the final 4 hidden states from the pre-training to use, and also made use of the same sample weights to ensure that it was incentivised to predict the ‘remove’ label and ignore any padding. The model was compiled over 3 epochs with an Adam optimizer, a learning rate of 3e-5, sparse categorical cross entropy, and sparse categorical accuracy. The model architecture is shown in Figure 5.
       </p>
+             <figure id="fig7">
+        <img src="img/fig7.jpeg", alt="Arcitecture transformer model">
+          <figcaption>Figure 7: Model architecture for the Transformer modell</figcaption>
+      </figure>
 
 
 </div>

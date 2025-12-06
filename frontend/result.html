@@ -25,15 +25,53 @@
       <div class="text-bubble">
       <h4>Whisper model</h4>
       <p>
-To be added 
+To measure how well the fine-tuned model is, its WER was calculated on the validation set and compared with the WER of the normal whisper small model. Figure 8 shows the result of this simulation, where the fine-tuned model had an average WER of 9.76% compared to whisper which had an WER of average 23.09%. This shows that the fine-tuned whisper model is 13.3 points better than the whisper model.
       </p>
       <br>
+      <figure id="fig8">
+        <img src="img/fig8.jpeg", alt="WER result">
+          <figcaption>Figure 8: WER of fine-tuned model vs whisper model</figcaption>
+      </figure>
       <h4>Filtration model</h4>
       <p>
 The LSTM classification report is shown in Figure 6. Figure 7 shows the accuracy and the loss over 13 epochs before early stopping. Figure 8 shows the confusion matrix.
+      </p>
       <br>
-      <p>
-As shown by these results, the Transformer model performed better than the LSTM in overall accuracy (97% vs 92%) as well as F1 score (85% vs 76%). The fact that both keep and remove have more true positives can perhaps be attributed to the fact that there were overall more tokens in the transformer model due to the tokenizer tokenizing subwords. However, the decrease in false classifications for each verifies the sizable improvement that the Transformer provides over the LSTM. F1 scores for both models were much higher for classifying ‘keep’ labels than ‘remove’ labels, which makes sense because the former made up the majority of the labels. Because of this, F1 score is the better metric to use, as it places more of an emphasis on false classifications and punishes the model more if it is only predicting ‘keep’ for each label.      </p>
+        <figure id="fig9">
+        <img src="img/fig9.jpeg", alt="LSTM-report">
+          <figcaption>Figure 9: LSTM Classification report</figcaption>
+      </figure>
+
+        <figure id="fig10">
+        <img src="img/fig10.jpeg", alt="LSTM-accuracy">
+          <figcaption>Figure 10: LSTM Accuracy and Loss per Epoch</figcaption>
+      </figure>
+
+      <figure id="fig11">
+        <img src="img/fig11.jpeg", alt="LSTM Confusion Matrix">
+          <figcaption>Figure 11: L LSTM Confusion Matrix</figcaption>
+      </figure>
+
+<p>
+  The Transformer classification report is shown in Figure 12, and  Figure 13 shows the confusion matrix. I am not including the per epoch graph as the model only trained for 3 epochs.
+</p>
+
+      <figure id="fig12">
+        <img src="img/fig12.jpeg", alt="Transformer-report ">
+          <figcaption>Figure 12: Transformer Classification report</figcaption>
+      </figure>
+
+
+        <figure id="fig13">
+        <img src="img/fig13.jpeg", alt="Transformer Confusion Matrix ">
+          <figcaption>Figure 13: Transformer Confusion Matrixt</figcaption>
+      </figure>
+
+            <p>
+As shown by these results, the Transformer model performed better than the LSTM in overall accuracy (97% vs 92%) as well as F1 score (85% vs 76%). The fact that both keep and remove have more true positives can perhaps be attributed to the fact that there were overall more tokens in the transformer model due to the tokenizer tokenizing subwords. However, the decrease in false classifications for each verifies the sizable improvement that the Transformer provides over the LSTM. F1 scores for both models were much higher for classifying ‘keep’ labels than ‘remove’ labels, which makes sense because the former made up the majority of the labels. Because of this, F1 score is the better metric to use, as it places more of an emphasis on false classifications and punishes the model more if it is only predicting ‘keep’ for each label.     
+ </p>
+      
+
     </div>
   </div>
       <div class="menu-sign">

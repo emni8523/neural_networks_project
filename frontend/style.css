@@ -19,7 +19,7 @@
   background-repeat: no-repeat;
   background-color: #1a1a1a;
   width: 100%;
-  min-height: 100vh; /* This ensures it's at least full viewport height */
+  min-height: 100vh; 
   position: relative;
   padding-bottom: 50px;
 }
@@ -27,8 +27,8 @@ html, body {
   margin: 0;
   padding: 0;
   width: 100%;
-  min-height: 100vh; /* Changed from 100% to 100vh */
-  background-color: #1a1a1a; /* Match the desktop background */
+  min-height: 100vh; 
+  background-color: #1a1a1a; 
 }
 
 
@@ -423,7 +423,7 @@ text-align: center;
   
 }
 
-.text-bubble p {
+.text-bubble p, a {
   font-family: "Roboto Serif-Regular", Helvetica;
   font-size: 18px;
   color: #ffffff;
@@ -456,6 +456,14 @@ footer {
   line-height: 1.5;
   font-size: large;
 }
+.footer-info a {
+  margin: 4px 0;
+  line-height: 1.5;
+  font-size: large;
+  font-family: "Times New Roman", Times, serif;
+  display: block; 
+  color: #222;
+}
 
 .desktop .banner-text {
   position: absolute;
@@ -473,9 +481,83 @@ footer {
 
 
 
+figure {
+  text-align: center;
+  margin: 2em 0;
+}
 
-/* 
-Roligare font i vit, blockigare i caps check
-Gröna textrutor, check
-Footer i ljusgrå med svart text
-*/
+figure img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #333;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+figcaption {
+  margin-top: 0.8em;
+  font-size: 0.9em;
+  color: #fff;
+  font-style: italic;
+}
+
+figcaption strong {
+  color: #fff;
+  font-style: normal;
+}
+
+.Main h4 {
+  padding: 12px 20px;
+  color: white;
+  font-size: 40px;
+  margin: 0;
+text-align: center;
+}
+
+#fig3, #fig4 {
+  text-align: center;
+  margin: 2em auto;
+  max-width: 600px; /* Make them smaller */
+}
+
+#fig3 img, #fig4 img{
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+
+#fig6 img, #fig9 img, #fig12 img {
+  width: 500px;
+  height: 250px;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+#fig10 img, #fig11 img, #fig13 img {
+  width: 500px;
+  height: 400px;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+
+ #fig7 img {
+  width: 800px;
+  height: 400px;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+
+#fig3 figcaption, #fig4 figcaption, #fig2 figcaption {
+  margin-top: 1em;
+  font-size: 0.85em;
+  color: #bc8cff;/* Blue caption color */
+  font-style: italic;
+}
