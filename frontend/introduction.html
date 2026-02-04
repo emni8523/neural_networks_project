@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="global.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://kit.fontawesome.com/4a44b6177d.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div class="desktop">
+      <div class="banner">
+        
+        
+        <a href="index.html" style="text-decoration: none;">
+        <div class="text-wrapper" id="Paragon">PARAGON</div>
+        </a>
+    
+    </div>
+    <div class="Main">
+      <div class="title">
+        <h2>INTRODUCTION</h2>
+          <div class="title-line"></div>
+      </div>
+      <div class="text-bubble">
+      <p>
+        In many academic settings, students can struggle with meeting the demands for writing academic papers. Whether they are writing for a journal or a class, developing an academic tone is itself a skill many students have to learn in order to be successful in academia. Even students who know the ins and outs of a project can find difficulty when putting their thoughts into words for a paper. This could be due to writing in a language different from a student’s native language, using academic ‘jargon’ that the student understands the concept of but lacks the words for, or simply struggling to know where to start. Regardless, our goal with Paragon is to help jump start the process of reframing a student’s understanding of a topic into material suitable for academic papers.
+      </p>
+      <br>
+      <p>
+        With the acceleration and rapid deployment of Large Language Models in recent years, it stands to reason that LLMs can help support students in developing academic writing. Recent papers have attested to the promise of using LLMs to develop academic language, and point to their usefulness as a tool for improving readability and informativeness in research papers (Khalifa, M., & Albadawy, M., 2024, Hadan, H. et al., 2024). There are still questions involving the integrity and ethics of using AI to scrape data from academic databases, as is the case with many conversations about AI. However, its practical application for research papers, if it is true that the research itself is what matters the most, is too encouraging to completely ignore.
+      </p>
+      <br>
+      <p>
+        The goal of Paragon is not to be used to write entire research papers from the ground up, but rather to serve as a conversation partner to help facilitate a translation of the user’s understanding into writing. It is clear that completely removing the researcher from the majority of the writing can lead to a lack of specific details and any “human element” of the research (Hadan, H. et al., 2024). Therefore, Paragon does nothing else but rephrase the input audio into academic language, instead of generating excess material as many generative LLMs would. While this functionality can be found by prompting certain LLMs in a certain way, it is hard-coded into Paragon. Once the raw audio is processed, every prompt asks the LLM the same question: “Rewrite the following sentence in formal language while preserving its exact meaning and sentiment. Only return the relevant sentence and nothing else.” This allows for consistent results and a clearly defined use for the application.
+      </p>
+      <br>
+      <p>
+        In our experience, it is much easier to talk about something freely than it is to write academically about it. One is not limited by the guidelines of an academic paper, and it is reasonable to expect, in many cases, some amount of dialogue or clarifying questions from the recipient of the information. For academic writing, students do not have the luxury of someone asking to clarify a point. Instead, their communication of a topic is permanent and must stand firm to critiques, reproduction of results, and peer review, which can lead to a feeling of pressure and permanence when writing an academic paper. A crucial part of Paragon is that it allows users to freely speak with filler words, repeated words, and restarted sentences. In speaking, a user can start to figure out what they want to say as they are saying it, and Paragon’s filter removes the pressure to write permanently and perfectly from the outset.
+      </p>
+      <br>
+      <p>
+        Paragon is an application that aims to help students think through putting their ideas into academic language in order to efficiently report their research. It does not remove the researcher themself from the development of the paper, as some generative LLMs would, and simply helps the user abide by the grammatical and professional standards required for successful academic papers. Its use of speech input, a hard-coded LLM prompt, and a filtration model allow it to serve a clear and defined role in helping students write academic papers.
+
+      </p>
+
+        <figure id="chat">
+        <img src="img/chat-gpt logo.webp", alt="chat-gpt">
+      </figure>
+      <figure id="speaking">
+        <img src="img/speking.png", alt="speaking-icon">
+
+      </figure>
+
+
+    </div>
+  </div>
+
+      <div class="menu-sign">
+        <div class="menu">
+          <div class="ellipse-2"></div>
+          <div class="ellipse-3"></div>
+          <div class="ellipse-4"></div>
+        </div>
+      </div>  
+       <div class="menu-dropdown" id="menuDropdown">
+        <a href="index.html">Abstract</a>
+          <a href="introduction.html">Introduction</a>
+          <a href="data_prep.html">Data and prep</a>
+          <a href="methods.html">Analysis: Models/Methods</a>
+          <a href="result.html">Results</a>
+          <a href="conclusion.html">Conclusion</a>
+          <a href="citation.html">References</a>
+        </div>  
+    </div>
+
+    <footer>
+      <div class="footer-columns">
+        <div class="footer-info">
+          <p>This was a project for University of Colorado Boulder in the course Neural Networks and Deep Learning, Fall 2025.</p>
+          <a href="https://github.com/emni8523/neural_networks_project">Link to Github</a>
+        </div>
+
+        <div class="footer-authors">
+          <p><strong>Authors</strong></p>
+          <p>Emil Nilsson</p>
+          <p>Jeremy Miesch</p>
+        </div>
+      </div>
+    </footer>
+
+     <script>
+
+      const menuSign = document.querySelector('.menu-sign');
+      const menuDropdown = document.getElementById('menuDropdown');
+
+      menuSign.addEventListener('click', function(e) {
+        e.stopPropagation();
+        menuDropdown.classList.toggle('active');
+      });
+
+      document.addEventListener('click', function(e) {
+        if (!menuSign.contains(e.target)) {
+          menuDropdown.classList.remove('active');
+        }
+      });
+
+  </script>
+  </body>

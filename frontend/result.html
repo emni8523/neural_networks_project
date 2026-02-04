@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="global.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://kit.fontawesome.com/4a44b6177d.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div class="desktop">
+      <div class="banner">
+        
+        
+        <a href="index.html" style="text-decoration: none;">
+        <div class="text-wrapper" id="Paragon">PARAGON</div>
+        </a>
+    
+    </div>
+    <div class="Main">
+      <div class="title">
+        <h2>Results</h2>
+          <div class="title-line"></div>
+      </div>
+      <div class="text-bubble">
+      <h4>Whisper model</h4>
+      <p>
+To measure how well the fine-tuned model is, its WER was calculated on the validation set and compared with the WER of the normal whisper small model. Figure 8 shows the result of this simulation, where the fine-tuned model had an average WER of 9.76% compared to whisper which had an WER of average 23.09%. This shows that the fine-tuned whisper model is 13.3 points better than the whisper model.
+      </p>
+      <br>
+      <figure id="fig8">
+        <img src="img/fig8.jpeg", alt="WER result">
+          <figcaption>Figure 8: WER of fine-tuned model vs whisper model</figcaption>
+      </figure>
+      <h4>Filtration model</h4>
+      <p>
+The LSTM classification report is shown in Figure 9. Figure 10 shows the accuracy and the loss over 13 epochs before early stopping. Figure 11 shows the confusion matrix.      </p>
+      <br>
+        <figure id="fig9">
+        <img src="img/fig9.jpeg", alt="LSTM-report">
+          <figcaption>Figure 9: LSTM Classification report</figcaption>
+      </figure>
+
+        <figure id="fig10">
+        <img src="img/fig10.jpeg", alt="LSTM-accuracy">
+          <figcaption>Figure 10: LSTM Accuracy and Loss per Epoch</figcaption>
+      </figure>
+
+      <figure id="fig11">
+        <img src="img/fig11.jpeg", alt="LSTM Confusion Matrix">
+          <figcaption>Figure 11: L LSTM Confusion Matrix</figcaption>
+      </figure>
+
+<p>
+The Transformer classification report is shown in Figure 12, and  Figure 13 shows the confusion matrix. I am not including the per epoch graph as the model only trained for 3 epochs.
+</p>
+
+      <figure id="fig12">
+        <img src="img/fig12.jpeg", alt="Transformer-report ">
+          <figcaption>Figure 12: Transformer Classification report</figcaption>
+      </figure>
+
+
+        <figure id="fig13">
+        <img src="img/fig13.jpeg", alt="Transformer Confusion Matrix ">
+          <figcaption>Figure 13: Transformer Confusion Matrixt</figcaption>
+      </figure>
+
+            <p>
+As shown by these results, the Transformer model performed better than the LSTM in overall accuracy (97% vs 92%) as well as F1 score (85% vs 76%). The fact that both keep and remove have more true positives can perhaps be attributed to the fact that there were overall more tokens in the transformer model due to the tokenizer tokenizing subwords. However, the decrease in false classifications for each verifies the sizable improvement that the Transformer provides over the LSTM. F1 scores for both models were much higher for classifying ‘keep’ labels than ‘remove’ labels, which makes sense because the former made up the majority of the labels. Because of this, F1 score is the better metric to use, as it places more of an emphasis on false classifications and punishes the model more if it is only predicting ‘keep’ for each label.     
+ </p>
+      
+
+    </div>
+  </div>
+      <div class="menu-sign">
+        <div class="menu">
+          <div class="ellipse-2"></div>
+          <div class="ellipse-3"></div>
+          <div class="ellipse-4"></div>
+        </div>
+      </div>  
+       <div class="menu-dropdown" id="menuDropdown">
+        <a href="index.html">Abstract</a>
+          <a href="introduction.html">Introduction</a>
+          <a href="data_prep.html">Data and prep</a>
+          <a href="methods.html">Analysis: Models/Methods</a>
+          <a href="result.html">Results</a>
+          <a href="conclusion.html">Conclusion</a>
+          <a href="citation.html">References</a>
+        </div>  
+    </div>
+
+    <footer>
+      <div class="footer-columns">
+        <div class="footer-info">
+          <p>This was a project for University of Colorado Boulder in the course Neural Networks and Deep Learning, Fall 2025.</p>
+          <a href="https://github.com/emni8523/neural_networks_project">Link to Github</a>
+        </div>
+
+        <div class="footer-authors">
+          <p><strong>Authors</strong></p>
+          <p>Emil Nilsson</p>
+          <p>Jeremy Miesch</p>
+        </div>
+      </div>
+    </footer>
+
+     <script>
+
+      const menuSign = document.querySelector('.menu-sign');
+      const menuDropdown = document.getElementById('menuDropdown');
+
+      menuSign.addEventListener('click', function(e) {
+        e.stopPropagation();
+        menuDropdown.classList.toggle('active');
+      });
+
+      document.addEventListener('click', function(e) {
+        if (!menuSign.contains(e.target)) {
+          menuDropdown.classList.remove('active');
+        }
+      });
+
+  </script>
+  </body>

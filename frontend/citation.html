@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="global.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://kit.fontawesome.com/4a44b6177d.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div class="desktop">
+      <div class="banner">
+        
+        
+        <a href="index.html" style="text-decoration: none;">
+        <div class="text-wrapper" id="Paragon">PARAGON</div>
+        </a>
+    
+    </div>
+    <div class="Main">
+      <div class="title">
+        <h2>References</h2>
+          <div class="title-line"></div>
+      </div>
+      <div class="text-bubble">
+        <div class="citation"> 
+        <p>
+            Hadan, H., Wang, D. M., Mogavi, R. H., Tu, J., Zhang-Kennedy, L., & Nacke, L. E. (2024). The great AI witch hunt: Reviewers’ perception and (Mis)conception of generative AI in research writing. Computers in Human Behavior: Artificial Humans, 2(2).
+        </p>
+        <a href="https://doi.org/10.1016/j.chbah.2024.100095">https://doi.org/10.1016/j.chbah.2024.100095</a>
+        <br>
+        <p>
+            Khalifa, M., & Albadawy, M. (2024). Using artificial intelligence in academic writing and research: An essential productivity tool. Computer Methods and Programs in Biomedicine Update, 5. 
+        </p>
+        <a href="https://doi.org/10.1016/j.cmpbup.2024.100145">https://doi.org/10.1016/j.cmpbup.2024.100145</a>
+        <br>
+        <p>
+            Wang, K., & Herremans, D. (2024). DisfluencySpeech — Single-Speaker Conversational Speech Dataset with Paralanguage. arXiv. 
+        </p>
+
+        <a href="https://doi.org/10.48550/arXiv.2406.08820">https://doi.org/10.48550/arXiv.2406.08820</a>
+    </div>
+
+
+</div>
+  </div>
+      <div class="menu-sign">
+        <div class="menu">
+          <div class="ellipse-2"></div>
+          <div class="ellipse-3"></div>
+          <div class="ellipse-4"></div>
+        </div>
+      </div>  
+       <div class="menu-dropdown" id="menuDropdown">
+          <a href="index.html">Abstract</a>
+          <a href="introduction.html">Introduction</a>
+          <a href="data_prep.html">Data and prep</a>
+          <a href="methods.html">Analysis: Models/Methods</a>
+          <a href="result.html">Results</a>
+          <a href="conclusion.html">Conclusion</a>
+          <a href="citation.html">References</a>
+        </div>  
+    </div>
+
+    <footer>
+      <div class="footer-columns">
+        <div class="footer-info">
+          <p>This was a project for University of Colorado Boulder in the course Neural Networks and Deep Learning, Fall 2025.</p>
+          <a href="https://github.com/emni8523/neural_networks_project">Link to Github</a>
+        </div>
+
+        <div class="footer-authors">
+          <p><strong>Authors</strong></p>
+          <p>Emil Nilsson</p>
+          <p>Jeremy Miesch</p>
+        </div>
+      </div>
+    </footer>
+
+     <script>
+
+      const menuSign = document.querySelector('.menu-sign');
+      const menuDropdown = document.getElementById('menuDropdown');
+
+      menuSign.addEventListener('click', function(e) {
+        e.stopPropagation();
+        menuDropdown.classList.toggle('active');
+      });
+
+      document.addEventListener('click', function(e) {
+        if (!menuSign.contains(e.target)) {
+          menuDropdown.classList.remove('active');
+        }
+      });
+
+  </script>
+  </body>
